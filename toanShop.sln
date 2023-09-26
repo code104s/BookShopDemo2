@@ -12,11 +12,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CuaHangSach.Data", "CuaHang
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CuaHangSach.Application", "CuaHangSach.Application\CuaHangSach.Application.csproj", "{1C6CFD24-B54F-48DA-86F7-332A471D4708}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CuaHangSach.WebApp", "CuaHangSach.WebApp\CuaHangSach.WebApp.csproj", "{33AE60CF-3A5E-4DF6-9C50-49C08CA09578}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CuaHangSach.WebApp", "CuaHangSach.WebApp\CuaHangSach.WebApp.csproj", "{33AE60CF-3A5E-4DF6-9C50-49C08CA09578}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CuaHangSach.Utilities", "CuaHangSach.Utilities\CuaHangSach.Utilities.csproj", "{40896EE5-CDD5-4175-8831-F86460834E26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CuaHangSach.Utilities", "CuaHangSach.Utilities\CuaHangSach.Utilities.csproj", "{40896EE5-CDD5-4175-8831-F86460834E26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CuaHangSach.ViewModels", "CuaHangSach.ViewModels\CuaHangSach.ViewModels.csproj", "{79100A16-E6F0-4265-AA96-2EC1929B3AFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CuaHangSach.ViewModels", "CuaHangSach.ViewModels\CuaHangSach.ViewModels.csproj", "{79100A16-E6F0-4265-AA96-2EC1929B3AFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CuaHangSach.BackendApi", "CuaHangSach.BackendApi\CuaHangSach.BackendApi.csproj", "{832D90AC-9557-4CC3-B150-820A6187C533}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +46,10 @@ Global
 		{79100A16-E6F0-4265-AA96-2EC1929B3AFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79100A16-E6F0-4265-AA96-2EC1929B3AFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79100A16-E6F0-4265-AA96-2EC1929B3AFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{832D90AC-9557-4CC3-B150-820A6187C533}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{832D90AC-9557-4CC3-B150-820A6187C533}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{832D90AC-9557-4CC3-B150-820A6187C533}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{832D90AC-9557-4CC3-B150-820A6187C533}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

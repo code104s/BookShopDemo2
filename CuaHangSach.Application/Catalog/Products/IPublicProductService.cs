@@ -1,5 +1,4 @@
 ﻿using CuaHangSach.ViewModels.Catalog.Products;
-using CuaHangSach.ViewModels.Catalog.Products.Manager;
 using CuaHangSach.ViewModels.Common;
 using System;
 using System.Collections.Generic;
@@ -11,6 +10,8 @@ namespace CuaHangSach.Application.Catalog.Products
 {
     public interface IPublicProductService
     {
-        Task<PagedResult<ProductViewModel>> GetAllByCategoryId(GetProductPagingRequest request);
+        Task<PagedResult<ProductViewModel>> GetAllByCategoryId(GetPublicProductPagingRequest request);
+        Task<List<ProductViewModel>> GetAll();
+
     }
 }

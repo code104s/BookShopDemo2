@@ -16,4 +16,10 @@
  - Xây dựng cấu trúc phân tầng Application : folder catalog - products 
   + Tao interface - product
   + Tao phuong thuc phan search va phan trang : 
- - Phuong thuc quan li anh Image
+ - Phuong thuc quan li anh Image #16 AddImages , RemoveImages , UpdateImages , GetListImage
+ - Tao API Project : BackendApi #17
+ - Tao Swagger cho web Api (Hoc Resful Api) 
+     + Install : Swashbuckle.AspNetCore.Swagger 
+                 Swashbuckle.AspNetCore.SwaggerUI
+                 washbuckle.AspNetCore.SwaggerGen
+ - 
