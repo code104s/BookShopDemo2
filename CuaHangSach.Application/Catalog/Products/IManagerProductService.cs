@@ -1,5 +1,5 @@
 ﻿using CuaHangSach.ViewModels.Catalog.Products;
-using CuaHangSach.ViewModels.Catalog.Products.Manager;
+ 
 using CuaHangSach.ViewModels.Common;
 using CuaHangSach.Data.EF;
 using System;
@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+
 
 namespace CuaHangSach.Application.Catalog.Products
 {
@@ -24,7 +26,13 @@ namespace CuaHangSach.Application.Catalog.Products
 
         /*Task<List<ProductViewModel>> GetAll();*/
 
-        Task<PagedResult<ProductViewModel>> GetAllPaging(GetProductPagingRequest request);   
+        Task<PagedResult<ProductViewModel>> GetAllPaging(GetManageProductPagingRequest request);   
+
+        Task<bool> AddImages(int productId,List <IFormFile> files);
+        Task<bool> RemoveImages(int productId);
+        Task<bool> UpdateImages(int imageId , string caption , bool isDefault);
+
+        Task<List<ProductImageViewModel>> GetListImage(int productId);
 
     }
 }

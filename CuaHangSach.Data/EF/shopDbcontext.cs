@@ -74,5 +74,6 @@ namespace CuaHangSach.Data.EF
         public DbSet<DanhMucTranslation> danhMucTranslantations { get; set; }
         public DbSet<SanPhamTranslation> sanPhamTranslations { get; set; }
         public DbSet<Language> Languages { get; set; }
+        public DbSet<ProductImage> productImages { get; set; }
     }
 }
