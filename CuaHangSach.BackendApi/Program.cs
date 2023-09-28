@@ -1,6 +1,8 @@
 ﻿using CuaHangSach.Application.Catalog.Products;
+using CuaHangSach.Application.Common;
 using CuaHangSach.Data.EF;
 using CuaHangSach.Utilities.Constrants;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
 using Microsoft.OpenApi.Models;
@@ -15,7 +17,9 @@ builder.Services.AddDbContext<shopDbcontext>(options =>
     options.UseSqlServer(connectionString));
 
 //Declare API
+builder.Services.AddTransient<IStrorageService, FileStorageService>();
 builder.Services.AddTransient<IPublicProductService,PublicProductService>();
+builder.Services.AddTransient<IManagerProductService, ManagerProductService>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -50,8 +54,13 @@ app.UseSwaggerUI(c =>
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Swagger CuaHangSach V1");
 });
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+});
+
 
 app.Run();

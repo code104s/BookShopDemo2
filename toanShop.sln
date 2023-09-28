@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F1FB9B95-DAE5-4D7C-9C6B-680F856F3DE9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0.Solution Items", "0.Solution Items", "{F1FB9B95-DAE5-4D7C-9C6B-680F856F3DE9}"
 	ProjectSection(SolutionItems) = preProject
 		README.MD = README.MD
 	EndProjectSection
@@ -18,7 +18,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CuaHangSach.Utilities", "Cu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CuaHangSach.ViewModels", "CuaHangSach.ViewModels\CuaHangSach.ViewModels.csproj", "{79100A16-E6F0-4265-AA96-2EC1929B3AFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CuaHangSach.BackendApi", "CuaHangSach.BackendApi\CuaHangSach.BackendApi.csproj", "{832D90AC-9557-4CC3-B150-820A6187C533}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CuaHangSach.BackendApi", "CuaHangSach.BackendApi\CuaHangSach.BackendApi.csproj", "{832D90AC-9557-4CC3-B150-820A6187C533}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Infrastructure", "1.Infrastructure", "{D07FFA05-110F-442C-AAAA-A8016B4D1528}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Domain", "2.Domain", "{8263D168-8F44-4BAA-BD28-80B13D029523}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Hosts", "3.Hosts", "{EDADF766-AE75-41DF-824A-3E0A58AFC743}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +59,14 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8AFF813F-E357-4A69-9355-ED39C9CE08C1} = {8263D168-8F44-4BAA-BD28-80B13D029523}
+		{1C6CFD24-B54F-48DA-86F7-332A471D4708} = {8263D168-8F44-4BAA-BD28-80B13D029523}
+		{33AE60CF-3A5E-4DF6-9C50-49C08CA09578} = {EDADF766-AE75-41DF-824A-3E0A58AFC743}
+		{40896EE5-CDD5-4175-8831-F86460834E26} = {D07FFA05-110F-442C-AAAA-A8016B4D1528}
+		{79100A16-E6F0-4265-AA96-2EC1929B3AFC} = {D07FFA05-110F-442C-AAAA-A8016B4D1528}
+		{832D90AC-9557-4CC3-B150-820A6187C533} = {EDADF766-AE75-41DF-824A-3E0A58AFC743}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {31F97B38-2CDA-4CEC-8698-ACFBF4DE8E0F}

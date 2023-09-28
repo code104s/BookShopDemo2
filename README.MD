@@ -22,4 +22,7 @@
      + Install : Swashbuckle.AspNetCore.Swagger 
                  Swashbuckle.AspNetCore.SwaggerUI
                  washbuckle.AspNetCore.SwaggerGen
- - 
+ - Tao Resful Api cho Product
+ - Tao Api quan li Anh
+ - Tạo API đăng nhập và đăng kí 
+     + Tao API : usercontroller
