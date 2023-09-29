@@ -24,5 +24,5 @@
                  washbuckle.AspNetCore.SwaggerGen
  - Tao Resful Api cho Product
  - Tao Api quan li Anh
- - Tạo API đăng nhập và đăng kí 
+ - Tạo API đăng nhập và đăng kí : login jwt
      + Tao API : usercontroller

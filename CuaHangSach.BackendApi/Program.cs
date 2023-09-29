@@ -1,8 +1,11 @@
 ﻿using CuaHangSach.Application.Catalog.Products;
 using CuaHangSach.Application.Common;
+using CuaHangSach.Application.System.Users;
 using CuaHangSach.Data.EF;
+using CuaHangSach.Data.Entities;
 using CuaHangSach.Utilities.Constrants;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
 using Microsoft.OpenApi.Models;
@@ -15,11 +18,20 @@ var connectionString = builder.Configuration.GetConnectionString(SystemConstans.
 // Đăng ký dịch vụ DbContext
 builder.Services.AddDbContext<shopDbcontext>(options =>
     options.UseSqlServer(connectionString));
+builder.Services.AddIdentity<AppUser, AppRole>()
+    .AddEntityFrameworkStores<shopDbcontext>()
+    .AddDefaultTokenProviders();
+
 
 //Declare API
 builder.Services.AddTransient<IStrorageService, FileStorageService>();
 builder.Services.AddTransient<IPublicProductService,PublicProductService>();
 builder.Services.AddTransient<IManagerProductService, ManagerProductService>();
+builder.Services.AddTransient<UserManager<AppUser>, UserManager<AppUser>>();
+builder.Services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
+builder.Services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();
+builder.Services.AddTransient<IUserService, UserService>();
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
