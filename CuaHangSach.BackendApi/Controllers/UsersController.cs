@@ -38,11 +38,11 @@ namespace CuaHangSach.BackendApi.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+
             var result = await _userService.Register(request);
             if (!result)
             {
-                return BadRequest("Register not unsuccessful");
-
+                return BadRequest("Register is unsuccessful.");
             }
             return Ok();
         }

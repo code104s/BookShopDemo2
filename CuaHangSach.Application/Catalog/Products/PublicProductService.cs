@@ -15,7 +15,7 @@ namespace CuaHangSach.Application.Catalog.Products
 {
     public class PublicProductService : IPublicProductService
     {
-        public int CategoryId { get; set; }
+         
 
         private readonly shopDbcontext _context;
         public PublicProductService(shopDbcontext context)
@@ -34,13 +34,14 @@ namespace CuaHangSach.Application.Catalog.Products
                         select new { p, pt, pic };
             //2 . filter
 
-            if (request.CategoryId.Count > 0)
+            if (request.CategoryId.HasValue && request.CategoryId.Value > 0)
             {
-                query = query.Where(p => p.pic.CategoryId == request.CategoryId.Count);
+                query = query.Where(p => p.pic.CategoryId == request.CategoryId);
             }
             //3. Paging
             int totalRow = await query.CountAsync();
-            var data = await query.Skip((request.PageIndex - 1) * request.PageSize).Take(request.PageSize)
+
+            var data = await query.Skip((request.PageIndex - 1) * request.PageSize)
             .Take(request.PageSize)
             .Select(x => new ProductViewModel()
             {
@@ -65,7 +66,7 @@ namespace CuaHangSach.Application.Catalog.Products
             var pagedResult = new PagedResult<ProductViewModel>()
             {
                 TotalRecord = totalRow,
-                Items = data,
+                Items = data
 
             };
             return pagedResult;

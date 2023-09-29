@@ -10,9 +10,6 @@ namespace CuaHangSach.ViewModels.Catalog.Products
     public class GetPublicProductPagingRequest : PagingRequestBase
     {
 
-
-        public string keyword { get; set; }
-
-        public List<int> CategoryId { get; set; } //chuyen list Category  + keyword de tim kiem
+        public int? CategoryId { get; set; }//chuyen list Category  + keyword de tim kiem
     }
 }

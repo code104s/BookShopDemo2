@@ -1,6 +1,7 @@
 ﻿using CuaHangSach.Application.Catalog.Products;
 using CuaHangSach.ViewModels.Catalog.ProductImages;
 using CuaHangSach.ViewModels.Catalog.Products;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,6 +10,7 @@ namespace CuaHangSach.BackendApi.Controllers
     //api/product
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ProductsController : ControllerBase
     {
         private readonly IPublicProductService _publicProductService;
@@ -24,7 +26,7 @@ namespace CuaHangSach.BackendApi.Controllers
 
 
         //http : //localhost:port/product?pageIndex=1&pageSize=10&CategoryId=
-        [HttpGet("public-paging/{languageId}")] // Day la alias
+        [HttpGet("{languageId}")] // Day la alias
 
         public async Task<IActionResult> GetPaging(string languageId, [FromQuery] GetPublicProductPagingRequest request)
         {

@@ -20,17 +20,18 @@ namespace CuaHangSach.Application.System.Users
         private readonly SignInManager<AppUser> _signInManager;
         private readonly RoleManager<AppRole> _roleManager;
         private readonly IConfiguration _config;
-        public UserService(UserManager<AppUser> userManager, SignInManager<AppUser>signInManager, RoleManager<AppRole> roleManage,IConfiguration config
-            )
+        public UserService(UserManager<AppUser> userManager, SignInManager<AppUser>signInManager, RoleManager<AppRole> roleManage,IConfiguration config)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _roleManager = roleManage;
+            _config = config;
         }
 
         public async Task<string> Authencate(LoginRequest request)
         {
             var user = await _userManager.FindByNameAsync(request.UserName);
-            if(user == null) { return null; };
+            if(user == null)  return null; 
 
             var result = await _signInManager.PasswordSignInAsync(user, request.Password, request.RememberMe, true);
             if(!result.Succeeded)

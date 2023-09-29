@@ -26,3 +26,5 @@
  - Tao Api quan li Anh
  - Tạo API đăng nhập và đăng kí : login jwt
      + Tao API : usercontroller
+ - Them Authorization header cho swagger ( Bao ve API de su dung Token)
+ - 
