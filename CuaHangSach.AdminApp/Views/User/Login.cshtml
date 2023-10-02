@@ -1,5 +1,5 @@
-﻿@using CuaHangSach.ViewModels.System.Users
-@model LoginRequest
+﻿
+@model CuaHangSach.ViewModels.System.Users.LoginRequest
 @{
     Layout = null;
 }
@@ -28,15 +28,15 @@
                                 <div class="card-body">
                                     <form asp-action="Login" asp-controller="User" method="post">
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" asp-by="UserName"  type="text" placeholder="Nhập tài khoản" />
+                                            <input class="form-control" asp-for="UserName"  type="text" placeholder="Nhập tài khoản" />
                                             <label for="inputUserName">Tài khoản</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" asp-by="Password" type="password" placeholder="Nhập mật khẩu" />
+                                            <input class="form-control" asp-for="Password" type="password" placeholder="Nhập mật khẩu" />
                                             <label for="inputPassword">Mật khẩu</label>
                                         </div>
                                         <div class="form-check mb-3">
-                                            <input class="form-check-input" asp-by="RememberMe" type="checkbox" value="" />
+                                            <input class="form-check-input" asp-for="RememberMe" type="checkbox" />
                                             <label class="form-check-label">Nhớ mật khẩu</label>
                                         </div>
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
