@@ -1,1 +1,124 @@
-﻿
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link href="~/Content/screen.css" rel="stylesheet" />
+    <link href="~/Content/fonts.css" rel="stylesheet" />
+    <link href="~/Content/css.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./icon/fontawesome-free-6.4.0-web/css/all.css">
+    <link href="~/Content/nivo-slider.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.nivo.slider.js"></script>
+</head>
+<body>
+    @*P_1*@
+    <sectionn>
+        @* P_1.1 *@
+        @*p_1.2 *@
+        <navbarr style="background-color: forestgreen; color: #fff; margin-top: -1px; display: flex; justify-content: space-around; align-items: center; width: 100%; height: 50px; position: fixed; z-index: 100 ">
+            <img src="~/hinhanh/logo1.png"style="width: 70px; height: 30px; margin-top: 12px;">
+            <a href="@Url.Action("Index","Home")"> Trang Chủ</a>
+            <a href="@Url.Action("GioiThieu","About")"> Giới Thiệu</a>@*
+            <a href="@Url.Action("Index","Home")"> Sách</a>*@
+            <a href="@Url.Action("TinTuc","About")"> Tin Tức</a>
+            <a href="@Url.Action("LienHe","About")"> Liên Hệ</a>
+            <div>
+                @using (Html.BeginForm("KetQuaTimKiem", "TimKiem", FormMethod.Post))
+                {
+                    @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "Tìm Kiếm " })
+                    <button style="padding: 2.5px 8px 2.5px 8px;"type="submit"><i class="fas fa-search"></i></button>
+                }
+            </div>
+
+            
+        </navbarr>
+    </sectionn>
+    @* P_2*@
+    <!--<section style="height:500px">-->
+        @*@Html.Action("SachMoiPartial", "Sach")*@
+        <!--<div class="slider" style="height:400px">
+            <div id="slider" class="nivoSlider">
+                <img src="../hinhanh/1_1.jpg" data-thumb="images/toystory.jpg" alt="" data-transition="slideInLeft" />
+                <img src="../hinhanh/1_2.jfif" data-thumb="images/up.jpg" alt="" title="" />
+                <img src="../hinhanh/1_3.jpg" data-thumb="images/walle.jpg" alt="" data-transition="slideInLeft" />
+                <img src="../hinhanh/1_4.jfif" data-thumb="images/nemo.jpg" alt="" title="" />
+                <img src="../hinhanh/1_7.webp" data-thumb="images/nemo.jpg" alt="" data-transition="slideInLeft"  title="" />
+            </div>
+        </div>-->       
+@**@    <!--</section>-->
+
+    <section>
+        <div class="noidung" style="padding:150px 3px 3px 3px;">
+            @RenderBody()
+        </div>
+    </section>
+    <section>
+
+
+        <script src="~/Scripts/js-jquery.js"></script> 
+
+    </section>
+    <section>
+        
+       <div class="footer" style="padding-top: 20px; margin-top: -20px;background-color:black">
+           <div class="end" style=" color:white;">
+               <div class="container" style="background-color: black;">
+                   <div class="col-md-4">
+
+                       <div class="footer_container">
+                           <img src="~/hinhanh/logo1.png" style="width: 100px; height: 30px; margin-top: 12px; padding-left: 20px">
+                           <p ><i class="fa-solid fa-location-dot"></i> Địa chỉ:Km 10, Đường Nguyễn Trãi, Quận Thanh Xuân , TP Hà Nội, Việt Nam </p>
+                           <p ><i class="fas fa-phone"></i> Điện thoại:0966 596 432 </p>
+                           <p ><i class="fas fa-envelope"></i> Email:Công-Nghệ-Web-Nhóm3@gmail.com</p>
+                       </div>
+                   </div>
+                   <div class="col-md-4">
+                       <div class="footer_container" style="padding-top:20px">
+                           <h3>QUY ĐỊNH & CHÍNH SÁCH</h3>
+                           <p><a href="#" style="padding-left:6px">QĐ đổi hàng và hoàn trả tiền</a></p>
+                           <p><a href="#" style="padding-left:6px">Quy Định</a></p>
+                           <p><a href="#" style="padding-left:6px">Chính sách cửa hàng</a></p>
+                       </div>
+                   </div>
+                   <div class="col-md-4">
+                       <h3 style="padding-top: 20px;width:200px;text-align:center">Hỗ Trợ Online</h3>
+                       <div class="footer_container" style="padding-top:5px;width:200px;text-align:center">
+                           <div class="ketnoi" style="line-height: 31px; display: flex; justify-content: space-around; align-items: center; width: 100%; ">
+                               <a>  <i class="fa-brands fa-facebook-messenger"></i></a>
+                               <a> <i class="fa-brands fa-facebook"></i></a>
+                               <a><i class="fa-brands fa-github"></i></a>
+                               <a><i class="fa-solid fa-envelope"></i></a>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               <p style="align-items: center;display:flex; padding-bottom:6px  ;justify-content: center">Copyright © 2023 SoftDreams. All rights reserved</p>
+           </div>
+        </div>
+    </section>
+</body>
+
+<script type="text/javascript">
+    $(window).load(function () {
+        $('#slider').nivoSlider({
+        });
+    });
+</script>
+<script>
+       // tích hợp Facebook SDK để sử dụng các tính năng và API của Facebook trên trang web.
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1838823719729580";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+</html>
