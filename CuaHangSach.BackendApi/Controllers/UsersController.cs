@@ -1,4 +1,5 @@
 ﻿using CuaHangSach.Application.System.Users;
+using CuaHangSach.ViewModels.Catalog.Products;
 using CuaHangSach.ViewModels.System.Users;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -32,7 +33,7 @@ namespace CuaHangSach.BackendApi.Controllers
         }
 
 
-        [HttpPost("register")]
+        [HttpPost]
         [AllowAnonymous]
         public async Task<IActionResult> Register([FromBody] RegisterRequest request)
         {
@@ -45,6 +46,15 @@ namespace CuaHangSach.BackendApi.Controllers
                 return BadRequest("Register is unsuccessful.");
             }
             return Ok();
+        }
+
+
+        [HttpGet("paging")] // Day la alias
+
+        public async Task<IActionResult> GetPaging( [FromQuery]GetUserPagingRequest request)
+        {
+            var products = await _userService.GetUsersPaging(request);
+            return Ok(products);
         }
     }
 }

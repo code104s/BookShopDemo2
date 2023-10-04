@@ -1,4 +1,5 @@
-﻿using CuaHangSach.ViewModels.System.Users;
+﻿using CuaHangSach.ViewModels.Common;
+using CuaHangSach.ViewModels.System.Users;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,6 @@ namespace CuaHangSach.Application.System.Users
     {
         Task<string> Authencate(LoginRequest request);
         Task<bool> Register(RegisterRequest request);
+        Task<PagedResult<UserViewModel>> GetUsersPaging(GetUserPagingRequest request);
     }
 }

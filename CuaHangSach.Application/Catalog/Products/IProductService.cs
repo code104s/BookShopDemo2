@@ -13,7 +13,7 @@ using CuaHangSach.ViewModels.Catalog.ProductImages;
 namespace CuaHangSach.Application.Catalog.Products;
 
 
-public interface IManagerProductService
+public interface IProductService
 { 
     Task<int> Create(ProductCreateRequest request);
 
@@ -39,5 +39,6 @@ public interface IManagerProductService
     Task<List<ProductImageViewModel>> GetListImage(int productId);
 
     /*Task<bool> UpdateNgayTao(int NgayTao);*/
+    Task<PagedResult<ProductViewModel>> GetAllByCategoryId(string languageId, GetPublicProductPagingRequest request);
 
 }

@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace CuaHangSach.ViewModels.Common
 {
-    public class PagingRequestBase : RequestBase
+    public class RequestBase
     {
-        public int PageIndex { set; get; }
-        public int PageSize { set; get; }
-
+        public string BearerToken { get; set; }
     }
 }

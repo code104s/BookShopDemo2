@@ -1,7 +1,7 @@
 ﻿using CuaHangSach.AdminApp.Service;
 using CuaHangSach.ViewModels.System.Users;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
@@ -11,45 +11,33 @@ using System.Text;
 
 namespace CuaHangSach.AdminApp.Controllers
 {
-    public class UserController : BaseController
+    public class LoginController : Controller
     {
         private readonly IUserApiClient _userApiClient;
         private readonly IConfiguration _configuration;
-        public UserController(IUserApiClient userApiClient, IConfiguration configuration)
+
+        public LoginController(IUserApiClient userApiClient,
+            IConfiguration configuration)
         {
             _userApiClient = userApiClient;
             _configuration = configuration;
         }
-        public async Task< IActionResult> Index(string keyword,int pageIndex = 1,int pageSize = 10)
-        {
-            var sessions = HttpContext.Session.GetString("Token");
-            var request = new GetUserPagingRequest()
-            {
-                BearerToken = sessions,
-                Keyword = keyword,
-                PageIndex = pageIndex,
-                PageSize = pageSize,
-            };
-            var data = await _userApiClient.GetUsersPagings(request);
-            return View(data);
-        }
-
 
         [HttpGet]
-        public async Task< IActionResult> Login()
+        public async Task<IActionResult> Index()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginRequest request)
+        public async Task<IActionResult> Index(LoginRequest request)
         {
             if (!ModelState.IsValid)
-            {
                 return View(ModelState);
-            }
+
             var token = await _userApiClient.Authenticate(request);
+
             var userPrincipal = this.ValidateToken(token);
             var authProperties = new AuthenticationProperties
             {
@@ -64,15 +52,7 @@ namespace CuaHangSach.AdminApp.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-        [HttpPost]
-        public async Task<IActionResult> Logout()
-        {
-            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Login", "User");
 
-
-        }
-        //Giai ma token
         private ClaimsPrincipal ValidateToken(string jwtToken)
         {
             IdentityModelEventSource.ShowPII = true;
@@ -89,7 +69,6 @@ namespace CuaHangSach.AdminApp.Controllers
             ClaimsPrincipal principal = new JwtSecurityTokenHandler().ValidateToken(jwtToken, validationParameters, out validatedToken);
 
             return principal;
-
         }
     }
 }
