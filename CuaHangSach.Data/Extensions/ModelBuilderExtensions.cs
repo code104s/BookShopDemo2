@@ -121,20 +121,20 @@ namespace CuaHangSach.Data.Extensions
                 LastName = "Nguyen",
                 Dob = new DateTime(2020, 01, 31)
             });
-            /*modelBuilder.Entity<AppUser>().HasData(new AppUser
+            modelBuilder.Entity<AppUser>().HasData(new AppUser
             {
-                Id = adminId,
-                UserName = "admin2",
-                NormalizedUserName = "admin2",
-                Email = "nguyenthanhtoanx2@gmail.com",
-                NormalizedEmail = "nguyenthanhtoanx2@gmail.com",
+                Id = roleId,
+                UserName = "hello",
+                NormalizedUserName = "hello",
+                Email = "nguyenthanhtoanx3@gmail.com",
+                NormalizedEmail = "nguyenthanhtoanx3@gmail.com",
                 EmailConfirmed = true,
                 PasswordHash = hasher.HashPassword(null, "Admin@234"),
                 SecurityStamp = string.Empty,
-                FirstName = "Toan",
+                FirstName = "Toan2",
                 LastName = "Nguyen",
                 Dob = new DateTime(2020, 01, 31)
-            });*/
+            });
 
 
 
