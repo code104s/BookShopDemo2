@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace CuaHangSach.ViewModels.System.Users
 {
-	public class UserVm
-	{
+    public class UserVm
+    {
         public Guid Id { get; set; }
         public string FirstName { get; set; }
 
@@ -18,6 +18,5 @@ namespace CuaHangSach.ViewModels.System.Users
         public string UserName { get; set; }
 
         public string Email { get; set; }
-
     }
 }

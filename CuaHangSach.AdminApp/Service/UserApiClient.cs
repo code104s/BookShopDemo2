@@ -37,7 +37,7 @@ namespace CuaHangSach.AdminApp.Service
             client.BaseAddress = new Uri(_configuration["BaseAddress"]);
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", request.BearerToken);
             var response = await client.GetAsync($"/api/users/paging?pageIndex=" +
-                $"{request.PageIndex}&pageSize={request.PageSize}&keyword={request.Keyword}");
+                $"{request.PageIndex}&pageSize={request.PageSize}&keyword=1");
             var body = await response.Content.ReadAsStringAsync();
             var users = JsonConvert.DeserializeObject<PagedResult<UserVm>>(body);
             return users;
