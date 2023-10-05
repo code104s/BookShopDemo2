@@ -31,8 +31,8 @@ builder.Services.AddIdentity<AppUser, AppRole>()
 
 //Declare API
 builder.Services.AddTransient<IStrorageService, FileStorageService>();
-builder.Services.AddTransient<IPublicProductService,PublicProductService>();
-builder.Services.AddTransient<IManagerProductService, ManagerProductService>();
+ 
+builder.Services.AddTransient<IProductService, ProductService>();
 builder.Services.AddTransient<UserManager<AppUser>, UserManager<AppUser>>();
 builder.Services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
 builder.Services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();

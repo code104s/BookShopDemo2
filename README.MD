@@ -31,3 +31,4 @@
  - template : https://startbootstrap.com/template/sb-admin
  - Tich hop api 
  - 26: Cookie Authentication va Login Logout
+ - 27: Lay danh sach user : add Microsoft.AspNetCore.Session

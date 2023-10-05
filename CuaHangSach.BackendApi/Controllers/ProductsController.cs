@@ -13,12 +13,12 @@ namespace CuaHangSach.BackendApi.Controllers
     [Authorize]
     public class ProductsController : ControllerBase
     {
-        private readonly IPublicProductService _publicProductService;
-        private readonly IManagerProductService _managerProductService;
-        public ProductsController(IPublicProductService publicProductService, IManagerProductService managerProductService)
+ 
+        private readonly IProductService _productService;
+        public ProductsController(IProductService productService)
         {
-            _publicProductService = publicProductService;
-            _managerProductService = managerProductService;
+           
+            _productService = productService;
 
         }
 
@@ -30,7 +30,7 @@ namespace CuaHangSach.BackendApi.Controllers
 
         public async Task<IActionResult> GetPaging(string languageId, [FromQuery] GetPublicProductPagingRequest request)
         {
-            var products = await _publicProductService.GetAllByCategoryId(languageId, request);
+            var products = await _productService.GetAllByCategoryId(languageId, request); 
             return Ok(products);
         }
 
@@ -38,7 +38,7 @@ namespace CuaHangSach.BackendApi.Controllers
         [HttpGet("{productId}/{languageId}")]
         public async Task<IActionResult> GetbyId(int productId, string languageId)
         {
-            var product = await _managerProductService.GetById(productId, languageId);
+            var product = await _productService.GetById(productId, languageId);
             if (product == null)
                 return BadRequest("Cannot find product");
 
@@ -54,11 +54,11 @@ namespace CuaHangSach.BackendApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var productId = await _managerProductService.Create(request);
+            var productId = await _productService.Create(request);
             if (productId == 0)
                 return BadRequest();
 
-            var product = await _managerProductService.GetById(productId, request.LanguageId);
+            var product = await _productService.GetById(productId, request.LanguageId);
 
             return CreatedAtAction(nameof(GetbyId), new { id = productId }, productId);
         }
@@ -71,7 +71,7 @@ namespace CuaHangSach.BackendApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var affectedResult = await _managerProductService.Update(request);
+            var affectedResult = await _productService.Update(request);
             if (affectedResult == 0)
             { return BadRequest(); }
 
@@ -83,7 +83,7 @@ namespace CuaHangSach.BackendApi.Controllers
 
         public async Task<IActionResult> Delete(int productId)
         {
-            var affectedResult = await _managerProductService.Delete(productId);
+            var affectedResult = await _productService.Delete(productId);
             if (affectedResult == 0)
             { return BadRequest(); }
 
@@ -95,7 +95,7 @@ namespace CuaHangSach.BackendApi.Controllers
 
         public async Task<IActionResult> UpdatePrice(int productId, decimal newPrice)
         {
-            var isSucessful = await _managerProductService.UpadatePrice(productId, newPrice);
+            var isSucessful = await _productService.UpadatePrice(productId, newPrice);
 
             if (isSucessful)
                 return Ok();
@@ -111,18 +111,18 @@ namespace CuaHangSach.BackendApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var imageId = await _managerProductService.AddImages(productId,request);
+            var imageId = await _productService.AddImages(productId,request);
             if (imageId == 0)
             { return BadRequest(); }
 
-            var image = await _managerProductService.GetImageById(imageId);
+            var image = await _productService.GetImageById(imageId);
             return CreatedAtAction(nameof(GetImageById), new {id = productId},image );
         }
 
         [HttpGet("{productId}/images/{imageId}")]
         public async Task<IActionResult> GetImageById(int productId, int imageId)
         {
-            var image = await _managerProductService.GetImageById(imageId);
+            var image = await _productService.GetImageById(imageId);
             if (image == null)
                 return BadRequest("Cannot find product");
 
@@ -137,7 +137,7 @@ namespace CuaHangSach.BackendApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var result = await _managerProductService.UpdateImages(imageId, request);
+            var result = await _productService.UpdateImages(imageId, request);
             if (result == 0)
             { return BadRequest(); }
 
@@ -148,7 +148,7 @@ namespace CuaHangSach.BackendApi.Controllers
 
         public async Task<IActionResult> RemoveImage(int imageId)
         {
-            var affectedResult = await _managerProductService.RemoveImages(imageId);
+            var affectedResult = await _productService.RemoveImages(imageId);
             if (affectedResult == 0)
             { return BadRequest(); }
 

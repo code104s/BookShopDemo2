@@ -115,12 +115,28 @@ namespace CuaHangSach.Data.Extensions
                 Email = "nguyenthanhtoanx2@gmail.com",
                 NormalizedEmail = "nguyenthanhtoanx2@gmail.com",
                 EmailConfirmed = true,
-                PasswordHash = hasher.HashPassword(null, "Abcd1234$"),
+                PasswordHash = hasher.HashPassword(null, "Admin@123"),
                 SecurityStamp = string.Empty,
                 FirstName = "Toan",
                 LastName = "Nguyen",
                 Dob = new DateTime(2020, 01, 31)
             });
+            /*modelBuilder.Entity<AppUser>().HasData(new AppUser
+            {
+                Id = adminId,
+                UserName = "admin2",
+                NormalizedUserName = "admin2",
+                Email = "nguyenthanhtoanx2@gmail.com",
+                NormalizedEmail = "nguyenthanhtoanx2@gmail.com",
+                EmailConfirmed = true,
+                PasswordHash = hasher.HashPassword(null, "Admin@234"),
+                SecurityStamp = string.Empty,
+                FirstName = "Toan",
+                LastName = "Nguyen",
+                Dob = new DateTime(2020, 01, 31)
+            });*/
+
+
 
             modelBuilder.Entity<IdentityUserRole<Guid>>().HasData(new IdentityUserRole<Guid>
             {
